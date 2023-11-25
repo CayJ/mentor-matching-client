@@ -1,9 +1,6 @@
-export interface Env {
-    // If you set another name in wrangler.toml as the value for 'binding',
-    // replace "DB" with the variable name you defined.
+export const onRequest: PagesFunction<{
     DB: D1Database;
-}
-export const onRequest: PagesFunction<Env> = async (context) => {
+}> = async ( context ) => {
     let userID  = context.params.userID;
 
     console.log('Environment:', context.env);
