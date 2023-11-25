@@ -4,11 +4,25 @@ export interface Env {
     DB: D1Database;
 }
 export const onRequest: PagesFunction<Env> = async (context) => {
-    const userID = context.params.userID;
+    let userID  = context.params.userID;
+
+    console.log('Environment:', context.env);
 
     // Check if userID is provided
     if (!userID) {
         return new Response("User ID not provided", { status: 400 });
+    }
+
+    // If userID is an array, take the first element
+    if (Array.isArray(userID)) {
+        userID = userID[0];
+    }
+
+    // Further processing, like converting to an integer if necessary
+    const userIDInt = parseInt(userID, 10);
+
+    if (isNaN(userIDInt)) {
+        return new Response("Invalid User ID", { status: 400 });
     }
 
     try {
