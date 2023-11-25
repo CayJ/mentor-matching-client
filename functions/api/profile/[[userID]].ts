@@ -3,6 +3,10 @@ export const onRequest: PagesFunction<{
 }> = async ( context ) => {
     let userID  = context.params.userID;
 
+    if (!context.env.DB) {
+        return new Response("DB binding is undefined", { status: 500 });
+    }
+
     console.log('Environment:', context.env);
 
     // Check if userID is provided
