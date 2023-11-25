@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-const Profile: React.FC = () => {
+const ProfileTest: React.FC = () => {
     let { userId } = useParams<{ userId: string }>();
 
     return (
@@ -13,4 +13,4 @@ const Profile: React.FC = () => {
     );
 }
 
-export default Profile;
+export default ProfileTest;

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Login from './Login';
 import Signup from './Signup';
-import Profile from './Profile';
+import ProfileTest from './ProfileTest';
 import UserList from './UserList'; // Import UserList component
 
 const App: React.FC = () => {
@@ -18,7 +18,7 @@ const App: React.FC = () => {
                 <Routes>
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
-                    <Route path="/profile/:userId" element={<Profile />} />
+                    <Route path="/profile/:userId" element={<ProfileTest />} />
                     <Route path="/users" element={<UserList />} /> {/* User List route */}
                     {/* other routes */}
                 </Routes>
