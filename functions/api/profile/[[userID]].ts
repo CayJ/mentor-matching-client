@@ -1,7 +1,4 @@
-export interface Env {
-    DB: D1Database;
-}
-export const onRequest: PagesFunction<Env> = async ( context ) => {
+export const onRequest: PagesFunction<{ DB: D1Database }> = async ( context ) => {
     let userID  = context.params.userID;
 
     if (!context.env.DB) {
